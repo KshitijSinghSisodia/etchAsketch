@@ -1,5 +1,5 @@
 let gridSize = 16;
-const canvasSize = 960;
+const canvasSize = document.querySelector(".canvas").height;
 let boxSize = 100 / gridSize + "%";
 
 const container = document.querySelector(".canvas");
@@ -8,7 +8,7 @@ function generateGrid(grid = gridSize) {
   for (let i = 0; i < grid * grid; i++) {
     const div = document.createElement("div");
     div.className = "box";
-    div.style.border = "1px solid #dfe3e8";
+    // div.style.border = "1px solid #dfe3e8";
     boxSize = 100 / gridSize + "%";
     div.style.flexBasis = boxSize;
     div.style.height = boxSize;

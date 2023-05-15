@@ -8,7 +8,7 @@
 }
 
 body {
-  margin: 1rem;
+  /* margin: 1rem; */
   gap: 16px;
   height: 100vh;
   background-color: #1f1f1f;
@@ -19,15 +19,22 @@ body {
   align-items: center;
   justify-content: center;
   gap: 16px;
+  height: 100vh;
 }
 .canvas {
-  width: 960px;
-  height: 960px;
+  max-width: 800px;
+  max-height: 800px;
+  height: 80vw;
+  width: 80vw;
+  aspect-ratio: 1/1;
   flex-grow: 0;
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: stretch; */
-  /* align-items: center; */
+  justify-content: stretch;
+  border: 3px solid #dfe3e8;
+  border-radius: 1rem;
+  overflow: hidden;
+  align-items: center;
 }
 .size-button {
   padding: 5px 16px;
