@@ -10,10 +10,26 @@
   </head>
   <body>
     <div class="container">
-      <div class="size-button">
-        <input type="range" min="1" max="100" value="16" class="slider" />
+      <div class="button-container">
+        <div class="button Erase">Erase</div>
+        <div class="button Reset">Reset</div>
       </div>
-      <div class="canvas"></div>
+      <div class="canvas-container">
+        <div class="size-button">
+          <input type="range" min="1" max="100" value="16" class="slider" />
+        </div>
+        <div class="canvas"></div>
+      </div>
+      <span class="colorpicker-container">
+        <input
+          type="color"
+          id="favcolor"
+          name="favcolor"
+          value="#fca311"
+          class="colorPicker"
+          colorpick-eyedropper-active="true"
+        />
+      </span>
     </div>
   </body>
 </html>
