@@ -1,37 +1,40 @@
 let gridSize = 16;
 const canvasSize = 960;
-let cellSize = canvasSize / gridSize;
-const previousColor = "#1f1f1f";
-console.log(cellSize);
+let boxSize = 100 / gridSize + "%";
 
-const canvas = document.querySelector(".canvas");
+const container = document.querySelector(".canvas");
 
-function generateGrid(grid = gridSize, boxSize = cellSize) {
-  removeGrid();
+function generateGrid(grid = gridSize) {
+  console.log("generating grid");
   for (let i = 0; i < grid * grid; i++) {
     const div = document.createElement("div");
     div.className = "box";
     div.style.border = "1px solid #dfe3e8";
-    div.style.height = `${boxSize}px`;
-    div.style.width = `${boxSize}px`;
-    canvas.appendChild(div);
+    boxSize = 100 / gridSize + "%";
+    div.style.flexBasis = boxSize;
+    div.style.height = boxSize;
+    container.appendChild(div);
   }
 }
 generateGrid();
 
 function removeGrid() {
-  canvas.innerHTML = "";
+  container.innerHTML = "";
 }
 
-const boxes = document.querySelectorAll(".box");
-boxes.forEach((box) => {
-  box.addEventListener("mouseover", (e) => {
-    box.style.backgroundColor = "#fca311";
-  });
+const sizeButton = document.querySelector(".size-button");
+
+sizeButton.addEventListener("click", (e) => {
+  gridSize = +prompt("Enter the Grid size");
+  removeGrid();
+  generateGrid(gridSize);
 });
 
-const reSize = document.querySelector(".size-button");
-reSize.addEventListener("click", () => {
-  let size = +prompt("Enter the tiles you want on each side: ");
-  generateGrid(size, Math.floor(canvasSize / size));
+const boxes = document.querySelectorAll(".box");
+let previousColor = "";
+boxes.forEach((box) => {
+  box.addEventListener("mouseover", (e) => {
+    previousColor = box.style.backgroundColor;
+    box.style.backgroundColor = "#fca311";
+  });
 });

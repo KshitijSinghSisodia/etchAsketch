@@ -26,8 +26,8 @@ body {
   flex-grow: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: stretch;
-  align-items: center;
+  /* justify-content: stretch; */
+  /* align-items: center; */
 }
 .size-button {
   padding: 5px 16px;
