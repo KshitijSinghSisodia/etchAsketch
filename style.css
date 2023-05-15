@@ -44,7 +44,7 @@ body {
   -webkit-appearance: none;
   height: 5px;
   width: 100%;
-  background: linear-gradient(90deg, #fca311 16%, #fff 50%);
+  background: linear-gradient(90deg, #fca311 16%, #fff 16%);
   border-radius: 1rem;
   outline: none;
 }
