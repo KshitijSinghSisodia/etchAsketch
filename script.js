@@ -1,6 +1,7 @@
 let gridSize = 16;
 const canvasSize = 960;
 let cellSize = canvasSize / gridSize;
+const previousColor = "#1f1f1f";
 console.log(cellSize);
 
 const canvas = document.querySelector(".canvas");
@@ -17,3 +18,10 @@ function generateGrid(grid = gridSize, boxSize = cellSize) {
 }
 
 generateGrid();
+
+const boxes = document.querySelectorAll(".box");
+boxes.forEach((box) => {
+  box.addEventListener("mouseover", (e) => {
+    box.style.backgroundColor = "#fca311";
+  });
+});
