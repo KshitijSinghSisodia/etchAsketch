@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
-
 * {
   padding: 0;
   margin: 0;
@@ -31,26 +30,45 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: stretch;
-  border: 3px solid #dfe3e8;
-  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   align-items: center;
+  background-color: #fff;
 }
 .size-button {
   padding: 5px 16px;
-  flex-grow: 0;
-  font-size: larger;
-  font-weight: 500;
-  background-color: #fca311;
-  border: 2px solid #ff9d00;
-  box-shadow: 2px 2px 15px #fca21178;
-  border-radius: 0.2rem;
-  min-width: auto;
-  text-align: center;
+  width: 30%;
 }
 
-.size-button:hover {
-  border: 2px solid #ffcf82;
-  background-color: #ffcf82;
-  box-shadow: 2px 2px 15px #f99b04;
+.slider {
+  -webkit-appearance: none;
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(90deg, #fca311 16%, #fff 50%);
+  border-radius: 1rem;
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background-color: #fca311;
+  border-radius: 1rem;
+
+  outline: none;
+  transition: box-shadow 0.3s;
+}
+.slider::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  color: #2596be;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 10px 10px #fca211a3;
+  cursor: pointer;
+}
+.slider:active::-webkit-slider-thumb {
+  box-shadow: 0 0 20px 10px #fca211e5;
+  cursor: ew-resize;
 }

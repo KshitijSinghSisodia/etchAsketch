@@ -8,7 +8,6 @@ function generateGrid(grid = gridSize) {
   for (let i = 0; i < grid * grid; i++) {
     const div = document.createElement("div");
     div.className = "box";
-    // div.style.border = "1px solid #dfe3e8";
     boxSize = 100 / gridSize + "%";
     div.style.flexBasis = boxSize;
     div.style.height = boxSize;
@@ -18,8 +17,10 @@ function generateGrid(grid = gridSize) {
   let previousColor = "";
   boxes.forEach((box) => {
     box.addEventListener("mouseover", (e) => {
-      previousColor = box.style.backgroundColor;
-      box.style.backgroundColor = "#fca311";
+      if (e.buttons == 1) {
+        previousColor = box.style.backgroundColor;
+        box.style.backgroundColor = "#fca311";
+      }
     });
   });
 }
@@ -29,10 +30,14 @@ function removeGrid() {
   container.innerHTML = "";
 }
 
-const sizeButton = document.querySelector(".size-button");
+const slider = document.querySelector(".slider");
 
-sizeButton.addEventListener("click", (e) => {
-  gridSize = +prompt("Enter the Grid size");
+slider.addEventListener("change", (e) => {
+  gridSize = slider.value;
+  console.log(gridSize);
   removeGrid();
   generateGrid(gridSize);
+});
+slider.addEventListener("mousemove", () => {
+  slider.style.background = `linear-gradient(90deg, #fca311 ${slider.value}%, #fff ${slider.value}%)`;
 });
