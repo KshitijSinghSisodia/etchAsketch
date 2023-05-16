@@ -65,8 +65,8 @@ body {
   overflow: hidden;
   align-items: center;
   background-color: #fff;
-  user-drag: none;
   user-select: none;
+  cursor: auto;
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -111,13 +111,6 @@ body {
   cursor: ew-resize;
 }
 
-.colorpicker-container {
-  /* height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  overflow: hidden; */
-  /* border: 5px solid red; */
-}
 .colorPicker {
   -webkit-appearance: none;
   height: 150px;
@@ -151,4 +144,14 @@ body {
 .Sketch.glow {
   box-shadow: 0 0 10px 5px #fca2116b;
   transition: box-shadow 0.3s ease;
+}
+
+.cellSize-left {
+  margin-right: -40px;
+}
+.cellSize {
+  color: #fff;
+  font-size: large;
+  width: 15px;
+  text-align: center;
 }

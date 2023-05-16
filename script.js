@@ -45,6 +45,13 @@ slider.addEventListener("mousemove", () => {
   slider.style.background = `linear-gradient(90deg, #fca311 ${slider.value}%, #fff ${slider.value}%)`;
 });
 
+slider.addEventListener("input", (e) => {
+  const cells = document.querySelectorAll(".cellSize");
+  cells.forEach((cellSizeValue) => {
+    cellSizeValue.innerHTML = e.target.value;
+  });
+});
+
 const reset = document.querySelector(".Reset");
 
 reset.addEventListener("click", () => {
