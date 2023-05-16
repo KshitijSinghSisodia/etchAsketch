@@ -129,15 +129,30 @@ body {
   appearance: none;
 }
 
-.slider::-webkit-slider-thumb:hover,
-.slider::-moz-range-thumb:hover,
+.slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 4px 2px #fca211a3;
+  cursor: pointer;
+}
+.slider:active::-webkit-slider-thumb {
+  box-shadow: 0 0 5px 5px #fca2116b;
+  cursor: ew-resize;
+}
+
+/* moz */
+.slider::-moz-range-thumb:hover {
+  box-shadow: 0 0 4px 2px #fca211a3;
+  cursor: pointer;
+}
+.slider:active::-moz-range-thumb {
+  box-shadow: 0 0 5px 5px #fca2116b;
+  cursor: ew-resize;
+}
+
+/* IE */
 .slider::-ms-thumb:hover {
   box-shadow: 0 0 4px 2px #fca211a3;
   cursor: pointer;
 }
-
-.slider:active::-webkit-slider-thumb,
-.slider:active::-moz-range-thumb,
 .slider:active::-ms-thumb {
   box-shadow: 0 0 5px 5px #fca2116b;
   cursor: ew-resize;
