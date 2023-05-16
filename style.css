@@ -32,12 +32,11 @@ body {
   padding: 5px 16px;
   background-color: #fca311;
   font-size: 18px;
-  border-radius: 4px;
-  outline: none;
+  border-radius: 5px;
   min-width: 111px;
   text-align: center;
-  transition: box-shadow 0.3s;
-  transition: transform 0.3s;
+  transition: box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .button:hover {
@@ -66,6 +65,13 @@ body {
   overflow: hidden;
   align-items: center;
   background-color: #fff;
+  user-drag: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .size-button {
@@ -133,8 +139,16 @@ body {
   border-radius: 50%;
   box-shadow: rgba(176, 175, 175, 0.24) 0px 3px 8px;
 }
-
+:root {
+  --colorPicker-shadow: rgba(252, 163, 17, 0.3);
+}
 .colorPicker:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(255, 252, 252, 0.3);
+  box-shadow: 0 4px 8px rgba(255, 252, 252, 0.3),
+    0 4px 2px var(--colorPicker-shadow);
+}
+.Erase.glow,
+.Sketch.glow {
+  box-shadow: 0 0 10px 5px #fca2116b;
+  transition: box-shadow 0.3s ease;
 }

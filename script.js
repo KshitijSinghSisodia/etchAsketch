@@ -1,9 +1,11 @@
 let gridSize = 16;
 const canvasSize = document.querySelector(".canvas").height;
 let boxSize = 100 / gridSize + "%";
+let previousColor = "#fff";
+let currentColor = "#fca311";
+let currentMode = "Sketch";
 
 const container = document.querySelector(".canvas");
-
 function generateGrid(grid = gridSize) {
   for (let i = 0; i < grid * grid; i++) {
     const div = document.createElement("div");
@@ -14,13 +16,14 @@ function generateGrid(grid = gridSize) {
     container.appendChild(div);
   }
   const boxes = document.querySelectorAll(".box");
-  let previousColor = "";
   boxes.forEach((box) => {
     box.addEventListener("mouseover", (e) => {
       if (e.buttons == 1) {
-        previousColor = box.style.backgroundColor;
-        box.style.backgroundColor = "#fca311";
+        box.style.backgroundColor = currentColor;
       }
+    });
+    box.addEventListener("click", (e) => {
+      box.style.backgroundColor = currentColor;
     });
   });
 }
@@ -40,4 +43,50 @@ slider.addEventListener("change", (e) => {
 });
 slider.addEventListener("mousemove", () => {
   slider.style.background = `linear-gradient(90deg, #fca311 ${slider.value}%, #fff ${slider.value}%)`;
+});
+
+const reset = document.querySelector(".Reset");
+
+reset.addEventListener("click", () => {
+  removeGrid();
+  generateGrid();
+});
+
+const erase = document.querySelector(".Erase");
+
+function eraseElements() {
+  currentMode = "Erase";
+  const boxes = document.querySelectorAll(".box");
+  boxes.forEach((box) => {
+    box.addEventListener("mouseover", (e) => {
+      if (e.buttons == 1) {
+        box.style.backgroundColor = "#fff";
+      }
+    });
+    box.addEventListener("click", (e) => {
+      box.style.backgroundColor = "#fff";
+    });
+  });
+  erase.classList.add("glow");
+  sketch.classList.remove("glow");
+}
+
+erase.addEventListener("click", () => {
+  eraseElements();
+});
+
+const sketch = document.querySelector(".Sketch");
+sketch.addEventListener("click", (e) => {
+  currentMode = "Sketch";
+  generateGrid();
+  sketch.classList.add("glow");
+  erase.classList.remove("glow");
+});
+
+const color = document.querySelector(".colorPicker");
+const style = document.documentElement.style;
+
+color.addEventListener("change", (e) => {
+  currentColor = e.target.value;
+  style.setProperty("--colorPicker-shadow", `${currentColor}66`);
 });
