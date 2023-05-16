@@ -11,6 +11,7 @@ body {
   gap: 16px;
   height: 100vh;
   background-color: #1f1f1f;
+  overflow: hidden;
 }
 
 .container {
@@ -190,4 +191,10 @@ body {
   font-size: large;
   width: 15px;
   text-align: center;
+}
+.heading {
+  text-align: center;
+  color: #fca311;
+  font-size: 32px;
+  /* margin-bottom: 16px; */
 }
